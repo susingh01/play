@@ -1,0 +1,17 @@
+#!/usr/bin/perl -w
+
+print "Today is " . `date`;
+
+print "The name of this \Uperl script\E is " . __FILE__ . "\n";
+# another way
+print "The name of this \Uperl script\E is " . $0 . "\n";
+
+$number = 125.5;
+
+print "Hello. The number we will examine is $number.\n";
+
+# Very important - use printf
+printf "The \Unumber\E in decimal is %d\n", 125;
+
+printf "The following number is taking up 20 spaces and is right justified.\n" .
+      "|%20d|\n", 125;
