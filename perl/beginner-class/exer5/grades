@@ -1,0 +1,48 @@
+#!/usr/bin/perl -w
+
+my $done = 0;
+
+while (! $done) {
+
+   print "How many grades will you enter? ";
+   my $grades_count = <STDIN>;
+   chomp $grades_count;
+   
+   print "Please enter $grades_count grades. ";
+   my $grades_string = <STDIN>;
+   chomp $grades_string;
+   my @grades = split(/ /, $grades_string);
+   
+   while (scalar(@grades) != $grades_count) {
+      print "Error - incorrect # of grades entered.\n";
+      print "Please enter exactly $grades_count grades. ";
+      $grades_string = <STDIN>;
+      @grades = split(/ /, $grades_string);
+   }
+   
+   my $sum = 0;
+   for my $i ( @grades ) {
+      while ($i < 0 || $i > 100) {
+         print "$i is an illegal grade.\n";
+         print "Enter a new grade now. ";
+         $i = <STDIN>;
+         chomp $i;
+      }
+      $sum += $i
+   }
+   
+   my $average = $sum / $grades_count;
+   print "*"x3;
+   printf " The overall grade average was %0.1f%% ", $average;
+   print "*"x3;
+   print "\n";
+
+   print "Do you wanna enter another set of grades?(y/n) ";
+   my $ans = getc;
+   my $restofit = <STDIN>;         # clear STDIN
+   if (lc($ans) eq 'n') {
+      $done = 1;
+   }
+}
+
+print "Good-bye\n";
