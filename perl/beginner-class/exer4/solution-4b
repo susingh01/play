@@ -1,0 +1,35 @@
+# 1
+
+$ perl -ne '($name,$phone,$address,$dob,$salary) = split(/:/); ($street,$city,$state)=split(/,/, $address); print "$city, $state\n"  if /^Norma /' datafile
+ Dearborn,  MI 23874
+
+# 2
+
+$ perl -ne '($name,$phone,$address,$dob,$salary) = split(/:/); chomp $salary;  s/$salary/$salary + 250/e; print' datafile
+Tommy Savage:408-724-0140:1222 Oxbow Court, Sunnyvale,CA 94087:5/19/66:34450
+Lesle Kerstin:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52850
+JonDeLoach:408-253-3122:123 Park St., San Jose, CA 94086:7/25/53:85350
+Ephram Hardy:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56950
+Betty Boop:245-836-8357:635 Cutesy Lane, Hollywood, CA 91464:6/23/23:14750
+Wilhelm Kopf:846-836-2837:6937 Ware Road, Milton, PA 93756:9/21/46:43750
+Norma Corder:397-857-2735:74 Pine Street, Dearborn, MI 23874:3/28/45:245950
+James Ikeda:834-938-8376:23445 Aster Ave., Allentown, NJ 83745:12/1/38:45250
+Lori Gortz:327-832-5728:3465 Mirlo Street, Peabody, MA 34756:10/2/65:35450
+Barbara Kerz:385-573-8326:832 Ponce Drive, Gary, IN 83756:12/15/46:268750
+
+# 3
+
+...
+
+# 4
+
+$ perl -ne 'print $.,":",$_ if $. == 2 .. $. == 6' datafile
+2:Lesle Kerstin:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52600
+3:JonDeLoach:408-253-3122:123 Park St., San Jose, CA 94086:7/25/53:85100
+4:Ephram Hardy:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56700
+5:Betty Boop:245-836-8357:635 Cutesy Lane, Hollywood, CA 91464:6/23/23:14500
+6:Wilhelm Kopf:846-836-2837:6937 Ware Road, Milton, PA 93756:9/21/46:43500
+
+# 5
+
+

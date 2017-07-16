@@ -1,0 +1,14 @@
+#!/usr/bin/perl -w
+
+my $infile = shift;
+open(INFILE, "$infile") || die "unable to open $infile: $!\n";
+
+my @lines = <INFILE>;
+close INFILE;
+
+for my $line ( @lines ) {
+   chomp $line;
+   my ($name, $phone, $address, $dob, $salary) = split(':', $line);
+   print "\nSalary: $salary\nName: $name\nPhone: $phone\n";
+}
+

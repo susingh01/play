@@ -1,0 +1,18 @@
+#!/usr/bin/perl -w
+
+# TWO METHODS
+
+# 1. If reading a single line, then first read into a scalar and then optionally split into an array if needed.
+
+print "Enter few words: ";
+my $input = <STDIN>;
+my @words = split(' ', $input);
+map { print "$_\n"; } @words;
+
+# 2. If reading more than one line, then read into an array.
+print "\tEnter few lines of text (press ^D when done):\n";
+my @lines = <STDIN>;
+map { print "$_\n"; } @lines;
+
+# Also refer to read() and getc()
+

@@ -1,0 +1,18 @@
+#!/usr/bin/perl -w
+
+# one way: first read into scalar and then split
+print "Enter at least 5 foods that you like: \n";
+my $input = <STDIN>;
+chomp $input;
+my @foods = split(' ', $input);
+#map { print "$_\n"; } @foods;
+for my $i ( @foods ) {
+   print "$i\n";
+}
+my $count = scalar(@foods);
+print "you entered $count foods\n";
+# slice
+my @sublist = @foods[0,1,2];
+map { print "$_\n"; } @sublist;
+
+

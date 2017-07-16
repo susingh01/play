@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+
+my %hash = (
+    '2CPR2B' => 'C Language',
+    '1UNX1b' => 'Intro to UNIX',
+    '3SH414' => 'Shell Programming',
+    '4PL400' => 'Perl Programming'
+    );
+
+for my $k (keys %hash) {
+   print "$k => $hash{$k}\n";
+}
+
+print "Enter code number of the course you plan to take this semester: ";
+my $code = <STDIN>;
+chomp $code;
+if (exists($hash{$code})) {
+   print "You will be taking $hash{$code} this semester\n";
+} else {
+   print "No such course offered.\n";
+}

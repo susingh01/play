@@ -1,0 +1,107 @@
+# 1
+
+$ perl -ne 'print if /Street/' datafile
+Norma Corder:397-857-2735:74 Pine Street, Dearborn, MI 23874:3/28/45:245700
+Lori Gortz:327-832-5728:3465 Mirlo Street, Peabody, MA 34756:10/2/65:35200
+
+# 2
+
+$ perl -ne 'print if /^B/ ' datafile
+Betty Boop:245-836-8357:635 Cutesy Lane, Hollywood, CA 91464:6/23/23:14500
+Barbara Kerz:385-573-8326:832 Ponce Drive, Gary, IN 83756:12/15/46:268500
+
+# 3
+
+$ perl -ne 'print if / Ker/' datafile
+Lesle Kerstin:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52600
+Barbara Kerz:385-573-8326:832 Ponce Drive, Gary, IN 83756:12/15/46:268500
+
+# 4
+
+$ perl -ne 'print if /:408-/' datafile
+Tommy Savage:408-724-0140:1222 Oxbow Court, Sunnyvale,CA 94087:5/19/66:34200
+Lesle Kerstin:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52600
+JonDeLoach:408-253-3122:123 Park St., San Jose, CA 94086:7/25/53:85100
+
+# 5
+
+$  perl -ne '($name,$phone,$address,$dob,$salary) = split(/:/); print "$name,$address\n" if /Lori Gortz/' datafile
+Lori Gortz,3465 Mirlo Street, Peabody, MA 34756
+
+# 6
+
+perl -ne '($name,$phone,$address,$dob,$salary) = split(/:/); print uc($name) . "\n" if $name =~ /^Ephram/' datafile
+EPHRAM HARDY
+
+# 7
+
+$  perl -ne 'print unless /4/' datafile
+Ephram Hardy:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56700
+
+# 8
+
+$  perl -ne 'print unless /4/' datafile
+Ephram Hardy:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56700
+Sukhwinders-iMac:exer4 susingh$  perl -ne 's/Wilhelm/Siegfried/; print' datafile
+Tommy Savage:408-724-0140:1222 Oxbow Court, Sunnyvale,CA 94087:5/19/66:34200
+Lesle Kerstin:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52600
+JonDeLoach:408-253-3122:123 Park St., San Jose, CA 94086:7/25/53:85100
+Ephram Hardy:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56700
+Betty Boop:245-836-8357:635 Cutesy Lane, Hollywood, CA 91464:6/23/23:14500
+Siegfried Kopf:846-836-2837:6937 Ware Road, Milton, PA 93756:9/21/46:43500
+Norma Corder:397-857-2735:74 Pine Street, Dearborn, MI 23874:3/28/45:245700
+James Ikeda:834-938-8376:23445 Aster Ave., Allentown, NJ 83745:12/1/38:45000
+Lori Gortz:327-832-5728:3465 Mirlo Street, Peabody, MA 34756:10/2/65:35200
+Barbara Kerz:385-573-8326:832 Ponce Drive, Gary, IN 83756:12/15/46:268500
+
+# 9
+
+$  perl -ne '($name,$phone,$address,$dob,$salary) = split(/:/); print "$dob\n" if /Tommy Savage/' datafile
+5/19/66
+
+# 10
+
+$ perl -ne 'print unless /James Ikeda/' datafile
+Tommy Savage:408-724-0140:1222 Oxbow Court, Sunnyvale,CA 94087:5/19/66:34200
+Lesle Kerstin:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52600
+JonDeLoach:408-253-3122:123 Park St., San Jose, CA 94086:7/25/53:85100
+Ephram Hardy:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56700
+Betty Boop:245-836-8357:635 Cutesy Lane, Hollywood, CA 91464:6/23/23:14500
+Wilhelm Kopf:846-836-2837:6937 Ware Road, Milton, PA 93756:9/21/46:43500
+Norma Corder:397-857-2735:74 Pine Street, Dearborn, MI 23874:3/28/45:245700
+Lori Gortz:327-832-5728:3465 Mirlo Street, Peabody, MA 34756:10/2/65:35200
+Barbara Kerz:385-573-8326:832 Ponce Drive, Gary, IN 83756:12/15/46:268500
+
+BONUS
+
+$  perl -ne 's/([A-Z][a-z]+) ([A-Z][a-z]+)/$2 $1/; print' datafile
+Savage Tommy:408-724-0140:1222 Oxbow Court, Sunnyvale,CA 94087:5/19/66:34200
+Kerstin Lesle:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52600
+JonDeLoach:408-253-3122:123 St Park., San Jose, CA 94086:7/25/53:85100
+Hardy Ephram:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56700
+Boop Betty:245-836-8357:635 Cutesy Lane, Hollywood, CA 91464:6/23/23:14500
+Kopf Wilhelm:846-836-2837:6937 Ware Road, Milton, PA 93756:9/21/46:43500
+Corder Norma:397-857-2735:74 Pine Street, Dearborn, MI 23874:3/28/45:245700
+Ikeda James:834-938-8376:23445 Aster Ave., Allentown, NJ 83745:12/1/38:45000
+Gortz Lori:327-832-5728:3465 Mirlo Street, Peabody, MA 34756:10/2/65:35200
+Kerz Barbara:385-573-8326:832 Ponce Drive, Gary, IN 83756:12/15/46:268500
+
+
+Another way:
+
+$  perl -ne 's/(\w+) (\w+)/$2 $1/; print' datafile
+Savage Tommy:408-724-0140:1222 Oxbow Court, Sunnyvale,CA 94087:5/19/66:34200
+Kerstin Lesle:408-456-1234:4 Harvard Square, Boston, MA 02133:4/22/62:52600
+JonDeLoach:408-253-3122:Park 123 St., San Jose, CA 94086:7/25/53:85100
+Hardy Ephram:293-259-5395:235 Carlton Lane, Joliet, IL 73858:8/12/20:56700
+Boop Betty:245-836-8357:635 Cutesy Lane, Hollywood, CA 91464:6/23/23:14500
+Kopf Wilhelm:846-836-2837:6937 Ware Road, Milton, PA 93756:9/21/46:43500
+Corder Norma:397-857-2735:74 Pine Street, Dearborn, MI 23874:3/28/45:245700
+Ikeda James:834-938-8376:23445 Aster Ave., Allentown, NJ 83745:12/1/38:45000
+Gortz Lori:327-832-5728:3465 Mirlo Street, Peabody, MA 34756:10/2/65:35200
+Kerz Barbara:385-573-8326:832 Ponce Drive, Gary, IN 83756:12/15/46:268500
+
+
+
+
+
