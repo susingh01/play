@@ -1,0 +1,9 @@
+#!/usr/bin/perl -w
+
+open(FOO, "sort -k2 ../data/datebook|") || die "couldn't run sort command : $!\n";
+
+while ( <FOO> ) {
+   print;
+}
+
+close FOO; 

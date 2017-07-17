@@ -1,0 +1,15 @@
+#!/usr/bin/perl -w
+
+my $infile = "../data/datebook";
+my $outfile = "/tmp/big_salaries";
+
+open(INFILE, $infile) || die "unable to open $infile: $!\n";
+open(OUTFILE, ">$outfile") || die "unable to open $outfile: $!\n";
+
+while (<INFILE>) {
+   my @fields = split(/:/);
+   print OUTFILE if ($fields[4] > 50000);
+}
+
+close INFILE;
+close OUTFILE;
